@@ -95,8 +95,8 @@ function! s:ReplaceWithRegister( type )
     " autoindenting.
     " With a put in visual mode, the previously selected text is put in the
     " unnamed register, so we need to save and restore that.
-    let l:save_clipboard = &clipboard
-    set clipboard= " Avoid clobbering the selection and clipboard registers.
+    " let l:save_clipboard = &clipboard
+    " set clipboard= " Avoid clobbering the selection and clipboard registers.
     let l:save_reg = getreg('"')
     let l:save_regmode = getregtype('"')
 
@@ -144,7 +144,7 @@ function! s:ReplaceWithRegister( type )
 	endif
     finally
 	call setreg('"', l:save_reg, l:save_regmode)
-	let &clipboard = l:save_clipboard
+	" let &clipboard = l:save_clipboard
     endtry
 endfunction
 function! ReplaceWithRegister#Operator( type, ... )
